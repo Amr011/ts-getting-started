@@ -1,4 +1,4 @@
-# node-ts starter
+# ts-getting-started
 
 Steps to run this project:
 
