@@ -1,9 +1,9 @@
 import express, { Router } from 'express'
 const router: Router = express.Router()
 
-import userService from '../../controller/user'
+import userController from '../../controller/user'
 
-const user: userService = new userService()
+const user: userController = new userController()
 
 // Get Current User GET Method
 // router.route('/me').get()

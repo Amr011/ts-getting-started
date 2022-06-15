@@ -3,7 +3,7 @@ import { Request, Response, NextFunction } from 'express'
 import { IUserRegisterReqBody } from '../types/IUser'
 import { VUserRegisterReqBody } from '../validation/VUser'
 
-// Controller Layer
+// User Controller Layer
 export default class userController {
    // get many users data controller function
    public async getManyUser(_req: Request, res: Response, _next: NextFunction) {
