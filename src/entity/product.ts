@@ -21,11 +21,11 @@ export class product extends BaseEntity {
    @Column({ type: 'varchar', length: 256, nullable: false })
    title: string
 
-   @ManyToOne(() => user, (user) => user.product, {
-      onDelete: 'CASCADE',
-   })
-   @JoinColumn({ name: 'userId' })
-   user!: user
+   //    @ManyToOne(() => user, (user) => user.product, {
+   //       onDelete: 'CASCADE',
+   //    })
+   //    @JoinColumn({ name: 'userId' })
+   //    user!: user
 
    @CreateDateColumn({ type: 'timestamp' })
    createdAt: Date

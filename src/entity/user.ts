@@ -11,6 +11,7 @@ import {
 } from 'typeorm'
 import { product } from './product'
 import { role } from './role'
+import { userRole } from './userRole'
 
 @Entity()
 export class user extends BaseEntity {
@@ -29,14 +30,10 @@ export class user extends BaseEntity {
    @Column({ type: 'varchar', length: 256, nullable: false })
    password: string
 
-   @ManyToMany(() => role, { cascade: true })
-   @JoinTable()
-   role: role[]
-
-   @OneToMany(() => product, (product) => product.user, {
+   @OneToMany(() => userRole, (ur) => ur.role, {
       onDelete: 'CASCADE',
    })
-   product: product[]
+   roleConnection: Promise<role[]>
 
    @Column({ type: 'boolean', default: false })
    verified: boolean

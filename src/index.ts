@@ -48,7 +48,7 @@ async function ServerLancher(): Promise<void> {
 
       // Server Listen
       type PORT = number | string
-      const port: PORT = process.env.PORT || 2022
+      const port: PORT = process.env.PORT || 2022 || 2023
       app.listen(port, () => {
          console.log(`Server is running on port ${port}`)
       })

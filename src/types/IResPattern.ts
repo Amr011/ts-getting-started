@@ -1,8 +1,6 @@
-export type IResStatus = 100 | 200 | 300 | 400 | 500
-
 export interface IRes {
    success: boolean
-   status: IResStatus
+   status: number
    message: string
    data?: any
 }

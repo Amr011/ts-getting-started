@@ -1,1 +1,3 @@
-export interface IRoleCreateReqBody {}
+export interface IRoleCreateReqBody {
+   title: string
+}
