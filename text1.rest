@@ -1,0 +1,4 @@
+GET http://localhost:2022/api/v1/user
+
+
+

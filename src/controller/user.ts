@@ -2,19 +2,26 @@ import { user } from '../entity/user'
 import { Request, Response, NextFunction } from 'express'
 import { IUserRegisterReqBody } from '../types/IUser'
 import { VUserRegisterReqBody } from '../validation/VUser'
+import { responsePattern } from '../utils/resPattern'
 
 // User Controller Layer
 export default class userController {
    // get many users data controller function
-   public async getManyUser(_req: Request, res: Response, _next: NextFunction) {
+   public async getManyUser(req: Request, res: Response, _next: NextFunction) {
       const userData: user[] = await user.find({
          relations: ['role'],
       })
 
-      if (userData) {
-         return res.status(200).json(userData)
+      const httpMethod = req.method.toLowerCase()
+
+      if (userData.length > 0) {
+         return res
+            .status(200)
+            .json(responsePattern('user', httpMethod, true, 200, userData))
       } else {
-         return res.status(200).json(null)
+         return res
+            .status(200)
+            .json(responsePattern('user', httpMethod, false, 200, userData))
       }
    }
 

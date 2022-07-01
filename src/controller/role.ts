@@ -7,12 +7,13 @@ import { VRoleCreateReqBody } from '../validation/VRole'
 export default class roleController {
    // get many role data controller function
    public async getManyRole(_req: Request, res: Response, _next: NextFunction) {
-      const userData: role[] = await role.find({
+      const roleData: role[] = await role.find({
          relations: ['user'],
       })
 
-      if (userData) {
-         return res.status(200).json(userData)
+      
+      if (roleData) {
+         return res.status(200).json(roleData)
       } else {
          return res.status(200).json(null)
       }
@@ -20,13 +21,13 @@ export default class roleController {
    // get many role data controller function
    public async getOneRole(req: Request, res: Response, _next: NextFunction) {
       const ID = req.params.id
-      const userData: role | undefined = await role.findOne({
+      const roleData: role | undefined = await role.findOne({
          where: { id: parseInt(ID) },
          relations: ['user'],
       })
 
-      if (userData) {
-         return res.status(200).json(userData)
+      if (roleData) {
+         return res.status(200).json(roleData)
       } else {
          return res.status(200).json(null)
       }
