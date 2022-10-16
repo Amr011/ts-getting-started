@@ -8,3 +8,10 @@ export const VUserRegisterReqBody: Joi.ObjectSchema<IUserRegisterReqBody> =
       email: Joi.string().email().required(),
       password: Joi.string().min(8).required(),
    })
+
+export const VUserUpdateReqBody: Joi.ObjectSchema<IUserRegisterReqBody> =
+   Joi.object({
+      firstname: Joi.string().required(),
+      lastname: Joi.string().required(),
+      email: Joi.string().email().required(),
+   })

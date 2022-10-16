@@ -1,6 +1,7 @@
 import { IdbConfig } from '../types/IdbConfig'
 
 export const dbConfig: IdbConfig = {
+   type: process.env.DB_TYPE,
    host: process.env.DB_HOST,
    port: process.env.DB_PORT,
    username: process.env.DB_USER,

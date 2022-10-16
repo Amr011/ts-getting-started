@@ -4,12 +4,17 @@ import bodyParser from 'body-parser'
 import cors from 'cors'
 import morgan from 'morgan'
 
+import path from 'path'
+import favicon from 'serve-favicon'
+
 import cookieParser from 'cookie-parser'
 import dotenv from 'dotenv'
 
 import connectDatabase from './config/db.config'
 import router from './routes/index'
 import errorHandler from './middleware/error-handler'
+
+import { role } from './entity/role'
 
 // Main Function
 async function ServerLancher(): Promise<void> {
@@ -24,6 +29,9 @@ async function ServerLancher(): Promise<void> {
 
       // Error Handling
       app.use(errorHandler)
+
+      // Favicon Config -- Not Loading
+      app.use(favicon(path.join(__dirname, 'public', 'icons', 'favicon.ico')))
 
       // Router Config
       app.use('/api/v1', router)
@@ -43,7 +51,12 @@ async function ServerLancher(): Promise<void> {
 
       //   Database Connection
       await connectDatabase()
-         .then(() => console.log('Database connected successfully !'))
+         .then(() => {
+            role.create({ title: 'USER' }).save()
+            role.create({ title: 'ADMIN' }).save()
+            role.create({ title: 'MODERATOR' }).save()
+            console.log('Database connected successfully !')
+         })
          .catch((err: any) => console.log(err))
 
       // Server Listen

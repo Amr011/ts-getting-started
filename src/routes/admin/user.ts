@@ -1,9 +1,9 @@
 import express, { Router } from 'express'
 const router: Router = express.Router()
 
-import userService from '../../controller/user'
+import userController from '../../controller/user'
 
-const user: userService = new userService()
+const user: userController = new userController()
 
 // Get Current User GET Method
 // router.route('/me').get()
@@ -12,7 +12,7 @@ router.route('/').get(user.getManyUser)
 // Get One User GET Method
 router.route('/:id').get(user.getOneUser)
 // Update Current User PUT Method
-// router.route('/').put(user.updateOneUser)
+router.route('/:id').put(user.updateOneUser)
 // DELETE Current User DELETE Method
 // router.route('/').delete(user.deleteOneUser)
 // Change User Password POST Method

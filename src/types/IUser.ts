@@ -4,3 +4,9 @@ export interface IUserRegisterReqBody {
    email: string
    password: string
 }
+
+export interface IUserUpdateReqBody {
+   firstname: string
+   lastname: string
+   email: string
+}

@@ -25,6 +25,7 @@
         "nodemailer": "^6.7.2",
         "pg": "^8.7.1",
         "reflect-metadata": "^0.1.13",
+        "serve-favicon": "^2.5.0",
         "typeorm": "^0.2.41"
     },
     "devDependencies": {
@@ -37,6 +38,7 @@
         "@types/morgan": "^1.9.3",
         "@types/node": "^8.0.29",
         "@types/nodemailer": "^6.4.4",
+        "@types/serve-favicon": "^2.5.3",
         "jest": "^27.5.1",
         "nodemon": "^2.0.15",
         "ts-node": "3.3.0",
